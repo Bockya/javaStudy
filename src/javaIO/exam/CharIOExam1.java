@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 
 public class CharIOExam1 {
     public static void main(String[] args) {
+        // 키보드로 한 줄씩 입력받기
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         //키보드로 입력받은 문자열을 저장하기 위해 line변수를 선언
         String line = null;
