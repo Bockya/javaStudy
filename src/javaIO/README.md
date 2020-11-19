@@ -3,7 +3,7 @@
 <hr>
 #### 입출력을 위한 인터페이스와 클래스들
 
-<img src="C:\Users\HEE GYEONG\Desktop\Everyday\자바 중급 - 자바IO _ 프로그래머스 - Chrome 2020-11-19 오후 11_20_52 (2).png" style="zoom:50%;" />
+<img src="https://user-images.githubusercontent.com/39514117/99703061-016ba100-2ada-11eb-96c7-3abe9bc505ca.png" style="zoom:50%;" />
 
 - 자바 IO는 크게 <u>byte단위 입출력</u>과 <u>문자 단위 입출력</u>클래스로 나뉩니다.
   - **byte단위** 입출력클래스는 모두 <u>InputStream</u>과 <u>OutputStream</u>이라는 추상클래스를 상속받아 만들어집니다.
@@ -11,7 +11,7 @@
 - 4가지 추상클래스(InputStream,OutputStreamReader,Reader,Writer)를 받아들이는 생성자가 있다면, 다양한 입출력방법을 제공하는 클래스입니다.
 - 4가지 클래스를 받아들이는 생성자가 없다면, 어디로부터 입력받을 것인지, 어디에 쓸것인지를 나타내는 클래스입니다.
 
-<img src="C:\Users\HEE GYEONG\Desktop\Everyday\자바 중급 - 자바IO _ 프로그래머스 - Chrome 2020-11-19 오후 11_21_02 (2).png" style="zoom:55%;" />
+<img src="https://user-images.githubusercontent.com/39514117/99703203-2b24c800-2ada-11eb-948e-37d76193f923.png" style="zoom:55%;" />
 
 - **파일**로 부터 입력받고 쓰기 위한 클래스 : <u>FileInputStream</u>, <u>FileOutputStream</u>, <u>FileReader</u>, <u>FileWriter</u>
 - **배열**로 부터 입력받고 쓰기 위한 클래스 : <u>ByteArrayInputStream</u>, <u>ByteArrayOutputStream</u>, <u>CharReader</u>, <u>CharWriter</u>
@@ -124,7 +124,7 @@ public class ByteIOExam2 {
 - System.currentTimeMillis();
   - 현재 시간을 롱타입으로 반환한다.
 
-<img src="C:\Users\HEE GYEONG\Desktop\Everyday\자바 중급 - Byte 단위 입출력 심화 _ 프로그래머스 - Chrome 2020-11-20 오전 12_44_01 (2).png" style="zoom:55%;" />
+<img src="https://user-images.githubusercontent.com/39514117/99703277-442d7900-2ada-11eb-92fe-3f8222752ae3.png" style="zoom:55%;" />
 
 - OS는 1byte씩 읽는다 해도 **512byte**를 읽어와서 511byte를 버린다.
   - 따라서 512byte로 처음 읽어 들이는 게 효율적이다.
