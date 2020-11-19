@@ -3,7 +3,7 @@
 <hr>
 #### 입출력을 위한 인터페이스와 클래스들
 
-<img src="C:\Users\HEE GYEONG\Desktop\Everyday\자바 중급 - 자바IO _ 프로그래머스 - Chrome 2020-11-19 오후 11_20_52 (2).png" style="zoom:50%;" />
+<img src="src/javaIO/exam/img/입출력을 위한 인터페이스와 클래스들.png" style="zoom:50%;" />
 
 - 자바 IO는 크게 <u>byte단위 입출력</u>과 <u>문자 단위 입출력</u>클래스로 나뉩니다.
   - **byte단위** 입출력클래스는 모두 <u>InputStream</u>과 <u>OutputStream</u>이라는 추상클래스를 상속받아 만들어집니다.
