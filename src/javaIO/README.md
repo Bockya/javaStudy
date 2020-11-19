@@ -39,7 +39,6 @@ Byte단위 입출력 클래스는 클래스의 이름이 InputStream이나 Outpu
 
 <hr>
 
-
 #### Byte 단위 입출력 심화
 
 Byte단위 입출력 클래스는 클래스의 이름이 InputStream이나 OutputStream으로 끝납니다.
