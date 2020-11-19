@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 public class ByteIOExam3 {
     public static void main(String[] args) {
         //io객체 선언
+        //try 괄호에 파일 관련 변수 선언
         try (DataOutputStream out = new DataOutputStream(new FileOutputStream("data.txt"));) {
             out.writeInt(100);
             out.writeBoolean(true);
