@@ -1,5 +1,5 @@
 //Byte 단위 입출력
-//파일을 한 바이트씩 읽어들어서 파일을 다시 한 바이트씩 저장하는 프로그램
+//파일을 1byte씩 읽어들여 파일에 1byte씩 저장하는 프로그램
 package javaIO.exam;
 
 import java.io.FileInputStream;
@@ -8,8 +8,9 @@ import java.io.IOException;
 
 public class ByteIOExam1 {
     public static void main(String[] args) {
-        FileInputStream fis = null; //파일로부터 읽어들이는 객체
-        FileOutputStream fos = null; //파일에 쓸 수 있는 객체
+        long startTime = System.currentTimeMillis(); //수행시간 확인
+        FileInputStream fis = null; //파일로부터 읽어오기 위한 객체
+        FileOutputStream fos = null; //파일에 쓸 수 있게 해주는 객체
         try {
             fis = new FileInputStream("src/javaIO/exam/ByteIOExam1.java");
             fos = new FileOutputStream("byte.txt"); //프로젝트 밑에 생성
@@ -26,5 +27,7 @@ public class ByteIOExam1 {
                 e.printStackTrace();
             }
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println(endTime-startTime); //실행시간
     }
 }
