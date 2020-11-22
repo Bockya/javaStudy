@@ -9,13 +9,16 @@ public class Calendar {
         return MAX_DAYS[month - 1];
     }
 
-    public static void main(String[] args) {
-        //숫자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
-        Scanner sc = new Scanner(System.in);
-        Calendar c = new Calendar();
-        System.out.println("달을 입력하세요");
-        int month = sc.nextInt();
-        System.out.printf("%d월은 %d일까지 있습니다\n", month, c.getMaxDaysofMonth(month));
-        sc.close();
+    public void printCalendar(int year, int month) {
+        System.out.printf("    <<%4d년 %2d월>>\n", year, month);
+        System.out.println(" SU MO TU WE TH FR SA");
+        System.out.println("----------------------");
+        int maxDay = getMaxDaysofMonth(month);
+        for (int i = 1; i <= maxDay; i++) {
+            System.out.printf("%3d", i);
+            if (i % 7 == 0)
+                System.out.println();
+        }
+        System.out.println();
     }
 }
