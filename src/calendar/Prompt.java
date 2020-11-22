@@ -17,7 +17,8 @@ public class Prompt {
         printMenu();
         Scanner sc = new Scanner(System.in);
         Calendar cal = new Calendar();
-        while (true) {
+        boolean isLoop = true;
+        while (isLoop) {
             System.out.println("명령: 1, 2, 3, h, q");
             String cmd = sc.next();
             switch (cmd) {
@@ -32,14 +33,13 @@ public class Prompt {
                     break;
                 case "h":
                     printMenu();
-                    continue;
+                    break;
                 case "q":
                     break;
                 default:
+                    isLoop = false;
                     System.out.println("잘못된 입력입니다");
-                    continue;
             }
-            if (cmd.equals("q")) break;
         }
         System.out.println("Thank you. Bye~");
         sc.close();
