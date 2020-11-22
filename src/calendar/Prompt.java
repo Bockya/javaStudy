@@ -3,45 +3,81 @@ package calendar;
 import java.util.Scanner;
 
 public class Prompt {
-    /**
-     * @param week
-     * @return 0 ~ 6 (0 = Sunday, 6 = Saturday)
-     */
-    public int parseDay(String week) {
-        return switch (week) {
-            case "일" -> 0;
-            case "월" -> 1;
-            case "화" -> 2;
-            case "수" -> 3;
-            case "목" -> 4;
-            case "금" -> 5;
-            case "토" -> 6;
-            default -> 0;
-        };
+    public void printMenu() {
+        System.out.println("+-------------+");
+        System.out.println("| 1. 일정 등록");
+        System.out.println("| 2. 일정 검색");
+        System.out.println("| 3. 달력 보기");
+        System.out.println("| h. 도움말");
+        System.out.println("| q. 종료");
+        System.out.println("+------------+");
     }
 
     public void runPrompt() {
-        //숫자를 입력받아 해당하는 달의 최대 일수를 출력하는 프로그램
+        printMenu();
         Scanner sc = new Scanner(System.in);
-        Calendar c = new Calendar();
+        Calendar cal = new Calendar();
+        while (true) {
+            System.out.println("명령: 1, 2, 3, h, q");
+            String cmd = sc.next();
+            switch (cmd) {
+                case "1":
+                    cmdRegister(sc, cal);
+                    break;
+                case "2":
+                    cmdSearch(sc, cal);
+                    break;
+                case "3":
+                    cmdCal(sc, cal);
+                    break;
+                case "h":
+                    printMenu();
+                    continue;
+                case "q":
+                    break;
+                default:
+                    System.out.println("잘못된 입력입니다");
+                    continue;
+            }
+            if (cmd.equals("q")) break;
+        }
+        System.out.println("Thank you. Bye~");
+        sc.close();
+    }
+
+    private void cmdCal(Scanner sc, Calendar c) { //call by reference
         int year;
         int month;
-        while (true) {
-            System.out.println("년도를 입력하세요 (exit: -1)");
-            System.out.print("YEAR> ");
-            year = sc.nextInt();
-            if (year == -1) break;
-            System.out.println("달을 입력하세요");
-            System.out.print("MONTH> ");
-            month = sc.nextInt();
-            if (month < 1 || month > 12) {
-                System.out.println("잘못된 입력입니다");
-                continue;
-            }
-            c.printCalendar(year, month);
+        System.out.println("년도를 입력하세요");
+        System.out.print("YEAR> ");
+        year = sc.nextInt();
+        System.out.println("달을 입력하세요");
+        System.out.print("MONTH> ");
+        month = sc.nextInt();
+        if (month < 1 || month > 12) {
+            System.out.println("잘못된 입력입니다");
+            return;
         }
-        System.out.println("Bye~");
-        sc.close();
+        c.printCalendar(year, month);
+    }
+
+    private void cmdSearch(Scanner sc, Calendar cal) {
+        System.out.println("[일정 검색]");
+        System.out.println("날짜를 입력해 주세요 (yyyy-MM-dd)");
+        String date = sc.next();
+        String plan = cal.searchPlan(date);
+        System.out.println(plan);
+    }
+
+    private void cmdRegister(Scanner sc, Calendar cal) {
+        System.out.println("[새 일정 등록]");
+        System.out.println("날짜를 입력해 주세요 (yyyy-MM-dd)");
+        String date = sc.next();
+        System.out.println("일정을 입력해 주세요");
+        sc.nextLine(); //엔터 버퍼 제거
+        String txt = sc.nextLine();
+        System.out.println(txt);
+        cal.registerPlan(date, txt);
     }
 
     public static void main(String[] args) {
@@ -50,3 +86,5 @@ public class Prompt {
         p.runPrompt();
     }
 }
+
+

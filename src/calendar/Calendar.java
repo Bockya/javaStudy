@@ -1,8 +1,27 @@
 package calendar;
 
+import java.time.LocalDate;
+import java.util.HashMap;
+
 public class Calendar {
     private final int[] MAX_DAYS = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     private final int[] LEAP_MAX_DAYS = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    private HashMap<LocalDate, String> planMap = new HashMap<>();
+
+    /**
+     * @param strDate ex: "2020-11-23"
+     * @param plan    ""
+     */
+    public void registerPlan(String strDate, String plan) {
+        LocalDate date = LocalDate.parse(strDate);
+        //System.out.println(date);
+        planMap.put(date, plan);
+    }
+
+    public String searchPlan(String strDate) {
+        LocalDate date = LocalDate.parse(strDate);
+        return planMap.get(date);
+    }
 
     public boolean isLeapYear(int year) {
         return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
@@ -28,19 +47,20 @@ public class Calendar {
             int delta = getMaxDaysofMonth(year, i);
             cnt += delta;
         }
-        cnt += day-1;
-        int weekday = (cnt + STANDARD_WEEKDAY) % 7;
-        return weekday;
+        cnt += day - 1;
+        return (cnt + STANDARD_WEEKDAY) % 7;
     }
 
     //simple test code here
     public static void main(String[] args) {
         Calendar c = new Calendar();
-        System.out.println(c.getWeekDay(1970, 1, 1) == 3);
-        System.out.println(c.getWeekDay(1971, 1, 1) == 4);
-        System.out.println(c.getWeekDay(1972, 1, 1) == 5);
-        System.out.println(c.getWeekDay(1974, 1, 1) == 1);
-
+        System.out.println(c.getWeekDay(1970, 1, 1) == 4);
+        System.out.println(c.getWeekDay(1971, 1, 1) == 5);
+        System.out.println(c.getWeekDay(1972, 1, 1) == 6);
+        System.out.println(c.getWeekDay(1973, 1, 1) == 1);
+        System.out.println(c.getWeekDay(1974, 1, 1) == 2);
+        c.registerPlan("2020-07-28", "broken up");
+        System.out.println(c.searchPlan("2020-07-28").equals("broken up"));
     }
 
     public void printCalendar(int year, int month) {
