@@ -17,7 +17,7 @@ public class Calendar {
 
     private int getWeekDay(int year, int month, int day) {
         int syear = 1970;
-        final int STANDARD_WEEKDAY = 3; //1970-1-1 (목)
+        final int STANDARD_WEEKDAY = 4; //1970-1-1 (목)
         int cnt = 0;
         for (int i = syear; i < year; i++) {
             int delta = isLeapYear(i) ? 366 : 365;
@@ -28,7 +28,7 @@ public class Calendar {
             int delta = getMaxDaysofMonth(year, i);
             cnt += delta;
         }
-        cnt += day;
+        cnt += day-1;
         int weekday = (cnt + STANDARD_WEEKDAY) % 7;
         return weekday;
     }
