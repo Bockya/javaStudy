@@ -3,7 +3,6 @@ package AWT;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.beans.EventHandler;
 
 public class FrameTest3 {
     public static void main(String[] args) {
