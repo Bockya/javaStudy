@@ -3,12 +3,14 @@ import java.util.Random;
 class season {
     public static void main(String[] args) {
         Random r = new Random();
-        int month = r.nextInt(12) + 1;
+        int month = r.nextInt(12) + 1; // 1 ~ 12 랜덤
+        String season = "";
         switch (month) {
-            case 3, 4, 5 -> System.out.println("봄입니다");
-            case 6, 7, 8 -> System.out.println("여름입니다");
-            case 9, 10, 11 -> System.out.println("가을입니다");
-            case 12, 1, 2 -> System.out.println("겨울입니다");
+            case 3, 4, 5 -> season = "봄";
+            case 6, 7, 8 -> season = "여름";
+            case 9, 10, 11 -> season = "가을";
+            case 12, 1, 2 -> season = "겨울";
         }
+        System.out.println(month + "월은 " + season + "입니다");
     }
 }
