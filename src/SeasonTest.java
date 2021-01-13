@@ -1,6 +1,6 @@
 import java.util.Random;
 
-class season {
+class SeasonTest {
     public static void main(String[] args) {
         Random r = new Random();
         int month = r.nextInt(12) + 1; // 1 ~ 12 랜덤
