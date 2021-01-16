@@ -5,22 +5,21 @@ import java.util.Random;
 
 class LottoTest2 {
     public static void main(String[] args) {
-        final int MAX_NUMBER = 45;
-        int[] lotto = new int[6];
         Random r = new Random();
-        lotto[0] = r.nextInt(MAX_NUMBER) + 1;
+        int[] lotto = new int[6];
+        boolean[] check = new boolean[45 + 1]; // 나온 숫자인지 체크
+        lotto[0] = r.nextInt(45) + 1;
+        check[lotto[0]] = true;
+        for (int i = 0; i < 6; i++) {
+            while (true) {
+                int num = r.nextInt(45) + 1;
+                if (check[num]) continue;
+                check[num] = true;
 
-        outer:
-        for (int i = 1; i < 6; i++) {
-            int num = r.nextInt(MAX_NUMBER) + 1;
-            for (int k = 0; k < i; k++) {
                 // 중복된 숫자 방지
-                if (lotto[k] == num) {
-                    i--;
-                    continue outer;
-                }
+                lotto[i] = num;
+                break;
             }
-            lotto[i] = num;
         }
         System.out.println(Arrays.toString(lotto));
     }
