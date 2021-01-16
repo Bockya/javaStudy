@@ -3,18 +3,24 @@ package lotto;
 import java.util.Arrays;
 import java.util.Random;
 
-class LottoTest4 {
+public class LottoTest4 {
     public static void main(String[] args) {
-        int[] ball = new int[45];
-        for (int i = 0; i < ball.length; i++)
-            ball[i] = i + 1;
+        final int MAX_NUMBER = 45;
+        int[] numbers = new int[MAX_NUMBER];
+
+        // 1 ~ 45의 숫자를 생성한 수 배열에 입력
+        for (int i = 0; i < MAX_NUMBER; i++)
+            numbers[i] = i + 1;
+
         Random r = new Random();
-        for (int i = 0; i < 1000; i++) {
-            int idx = r.nextInt(ball.length);
-            int tmp = ball[0];
-            ball[0] = ball[idx];
-            ball[idx] = tmp;
+        int[] lottoNums = new int[6];
+        for (int i = 0; i < 6; i++) {
+            int seq = r.nextInt(MAX_NUMBER - i);
+            // 생성된 숫자를 결과 배열에 저장
+            lottoNums[i] = numbers[seq];
+            // 배열에 저장된 숫자 위치 변경
+            numbers[seq] = numbers[MAX_NUMBER - i - 1];
         }
-        System.out.println(Arrays.toString(Arrays.copyOfRange(ball, 0, 6)));
+        System.out.println(Arrays.toString(lottoNums));
     }
 }
